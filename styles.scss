@@ -1,0 +1,144 @@
+/*Обнуление*/
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,
+*:before,
+*:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,
+:active {
+	outline: none;
+}
+a:focus,
+a:active {
+	outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+	display: block;
+}
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,
+button,
+textarea {
+	font-family: inherit;
+}
+
+input::-ms-clear {
+	display: none;
+}
+button {
+	cursor: pointer;
+}
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+a,
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+ul li {
+	list-style: none;
+}
+img {
+	vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: inherit;
+	font-weight: 400;
+}
+/*--------------------*/ /*--------------------------------------*/
+[class*="__container"] {
+	margin: 0 auto;
+	max-width: 1200px;
+}
+.main {
+	padding: 50px 0;
+	&__title {
+		font-size: 30px;
+		margin-bottom: 20px;
+	}
+}
+.todo__content {
+	padding: 30px 5px;
+	max-width: 400px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 20px;
+}
+.todo__title {
+	font-size: 25px;
+	margin-top: 15px;
+}
+.btn {
+	padding: 5px 15px;
+	background-color: red;
+	color: white;
+	font-size: 20px;
+}
+.todo {
+	&__note {
+		background-color: rgb(254, 207, 136);
+		padding: 20px;
+		border-radius: 50px;
+		display: flex;
+		gap: 5px;
+		align-items: center;
+		p {
+			font-size: 20px;
+		}
+		button {
+			background: none;
+			color: red;
+			font-size: 18px;
+			margin-left: auto;
+			display: block;
+		}
+	}
+	&__input {
+		padding: 5px 15px;
+		background-color: rgb(252, 223, 185);
+		font-size: 20px;
+	}
+	&__add {
+	}
+}
+
+.note-completed {
+	p {
+		text-decoration: line-through;
+	}
+	background-color: rgb(252, 243, 230);
+}
+.clear {
+}
