@@ -8,6 +8,7 @@ function todo() {
 		let div = document.createElement('div');
 		div.innerHTML = localStorage.getItem(key);
 		let text = div.querySelector('p')
+
 		if (text.dataset.chec == 'true') {
 			add(text.textContent, 'true')
 		} else {
@@ -19,6 +20,11 @@ function todo() {
 		let note = document.createElement('div');
 		let noteCheck = document.createElement('input');
 		let noteText = document.createElement('p');
+
+		noteText.dataset.chec = 'false'
+		noteText.textContent = val;
+		noteText.contentEditable = 'true';
+
 		let noteDelete = document.createElement('button');
 
 		note.classList = 'todo__note';
@@ -26,26 +32,23 @@ function todo() {
 		if (che == 'true') {
 			note.classList.add('note-completed');
 			noteCheck.checked = 'true';
+			noteText.dataset.chec = 'true'
 		}
 
 		noteCheck.type = 'checkbox';
-		noteCheck.addEventListener('change', (e) => {
+		noteCheck.addEventListener('click', (e) => {
 			let parent = noteCheck.closest('.todo__note')
 			parent.classList.toggle('note-completed')
-			localStorage.removeItem(`${parent.querySelector('p').textContent}`)
 
+			localStorage.removeItem(parent.querySelector('p').textContent)
 			if (noteCheck.checked) {
-				parent.querySelector('p').dataset.chec = 'true'
-				console.log('axd');
+				parent.querySelector('p').dataset.chec = 'true';
 			} else {
-				parent.querySelector('p').dataset.chec = 'false'
+				parent.querySelector('p').dataset.chec = 'false';
 			}
 
 			localStorage.setItem(parent.querySelector('p').textContent, parent.innerHTML)
 		})
-
-		noteText.textContent = val;
-		noteText.contentEditable = 'true';
 
 		noteDelete.textContent = 'Удалить';
 		noteDelete.addEventListener('click', (e) => {
